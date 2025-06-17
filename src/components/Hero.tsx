@@ -22,7 +22,7 @@ const Hero = () => {
           {/* Main Hero Content - Positioned to the left */}
           <div className="text-left text-white mb-16 max-w-2xl">
             <p className="text-lg md:text-xl mb-4">Selamat Datang Di</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
               SD Negeri 12 Kotohilalang
             </h1>
             
