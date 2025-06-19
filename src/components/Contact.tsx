@@ -2,6 +2,11 @@
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const Contact = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera.');
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +94,7 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <div className="bg-white p-8 rounded-2xl shadow-xl">
               <h3 className="text-2xl font-bold mb-6">Kirim Pesan kepada Kami</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -97,6 +102,7 @@ const Contact = () => {
                     </label>
                     <input 
                       type="text" 
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                       placeholder="Masukkan nama lengkap"
                     />
@@ -108,6 +114,7 @@ const Contact = () => {
                     </label>
                     <input 
                       type="email" 
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                       placeholder="Masukkan email"
                     />
@@ -121,6 +128,7 @@ const Contact = () => {
                     </label>
                     <input 
                       type="tel" 
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                       placeholder="Masukkan nomor telepon"
                     />
@@ -130,8 +138,12 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Subjek
                     </label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors">
-                      <option>Informasi Pendaftaran</option>
+                    <select 
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    >
+                      <option value="">Pilih Subjek</option>
+                      <option>Informasi Sekolah</option>
                       <option>Kurikulum</option>
                       <option>Biaya Sekolah</option>
                       <option>Fasilitas</option>
@@ -146,6 +158,7 @@ const Contact = () => {
                   </label>
                   <textarea 
                     rows={6}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="Tulis pesan Anda disini..."
                   ></textarea>
@@ -161,19 +174,6 @@ const Contact = () => {
               </form>
             </div>
           </div>
-        </div>
-
-        {/* Map or CTA */}
-        <div className="mt-16 bg-green-600 rounded-3xl p-8 md:p-12 text-center text-white">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            Jadwalkan Kunjungan Anda
-          </h3>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Kunjungi langsung sekolah kami dan lihat fasilitas serta program pembelajaran yang kami tawarkan
-          </p>
-          <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
-            Buat Janji Temu
-          </button>
         </div>
       </div>
     </section>

@@ -1,45 +1,58 @@
 
 import { Book, Computer, Microscope, Trophy, Music, Palette, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Facilities = () => {
+  const navigate = useNavigate();
+
   const facilities = [
     {
       icon: Book,
       title: "Perpustakaan Digital",
       description: "Koleksi buku fisik dan digital yang lengkap dengan ruang baca modern dan nyaman",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+      slug: "perpustakaan"
     },
     {
       icon: Computer,
       title: "Lab Komputer",
       description: "Laboratorium komputer dengan teknologi terkini untuk pembelajaran digital",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop",
+      slug: "komputer"
     },
     {
       icon: Microscope,
       title: "Lab IPA",
       description: "Fasilitas praktikum sains lengkap untuk eksperimen dan penelitian siswa",
-      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&fit=crop",
+      slug: "ipa"
     },
     {
       icon: Trophy,
       title: "Lapangan Olahraga",
       description: "Area olahraga lengkap untuk berbagai cabang olahraga dan aktivitas fisik",
-      image: "https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=400&h=300&fit=crop",
+      slug: "olahraga"
     },
     {
       icon: Music,
       title: "Studio Musik",
       description: "Ruang musik dengan instrumen lengkap untuk mengembangkan bakat seni siswa",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop",
+      slug: "musik"
     },
     {
       icon: Palette,
       title: "Studio Seni",
       description: "Ruang kreativitas untuk mengasah kemampuan seni rupa dan kerajinan tangan",
-      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+      slug: "seni"
     }
   ];
+
+  const handleFacilityClick = (slug: string) => {
+    navigate(`/facility/${slug}`);
+  };
 
   return (
     <section id="facilities" className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
@@ -64,7 +77,8 @@ const Facilities = () => {
             return (
               <div 
                 key={index}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                onClick={() => handleFacilityClick(facility.slug)}
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -81,10 +95,10 @@ const Facilities = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{facility.title}</h3>
                   <p className="text-gray-600 mb-4">{facility.description}</p>
-                  <button className="text-green-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <div className="text-green-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                     Pelajari Lebih Lanjut
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </div>
                 </div>
               </div>
             );
@@ -97,13 +111,24 @@ const Facilities = () => {
             Kunjungi Fasilitas Kami Secara Langsung
           </h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Daftarkan anak Anda untuk tour sekolah dan rasakan langsung kualitas fasilitas pendidikan kami
+            Hubungi kami untuk informasi lebih lanjut tentang fasilitas pendidikan terbaik kami
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={() => navigate('/school-tour')}
+              className="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+            >
               Daftar Tour Sekolah
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-green-600 transition-colors">
+            <button 
+              onClick={() => {
+                const contactElement = document.querySelector('#contact');
+                if (contactElement) {
+                  contactElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-green-600 transition-colors"
+            >
               Hubungi Kami
             </button>
           </div>

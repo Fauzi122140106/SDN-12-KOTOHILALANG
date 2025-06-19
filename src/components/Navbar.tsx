@@ -1,18 +1,33 @@
 
 import { Menu, X, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Beranda", href: "/" },
-    { name: "Tentang", href: "#about" },
-    { name: "Fasilitas", href: "#facilities" },
-    { name: "Galeri", href: "#gallery" },
+    { name: "Tentang", href: "/#about" },
+    { name: "Fasilitas", href: "/#facilities" },
+    { name: "Galeri", href: "/#gallery" },
     { name: "Berita", href: "/blog" },
-    { name: "Kontak", href: "#contact" },
+    { name: "Kontak", href: "/#contact" },
+    { name: "Admin", href: "/admin" },
   ];
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/#')) {
+      const element = document.querySelector(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(href);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b border-green-100">
@@ -37,17 +52,14 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-1">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   className="text-gray-700 hover:text-green-600 hover:bg-green-50 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
-              <button className="bg-green-600 text-white px-6 py-2 rounded-xl text-sm font-medium hover:bg-green-700 transition-colors ml-4">
-                Daftar Sekarang
-              </button>
             </div>
           </div>
           
@@ -66,18 +78,14 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t border-green-100">
           <div className="px-4 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-green-600 hover:bg-green-50 block px-3 py-3 rounded-xl text-base font-medium transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleNavClick(item.href)}
+                className="text-gray-700 hover:text-green-600 hover:bg-green-50 block px-3 py-3 rounded-xl text-base font-medium transition-colors w-full text-left"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
-            <button className="w-full bg-green-600 text-white px-3 py-3 rounded-xl text-base font-medium hover:bg-green-700 transition-colors mt-2">
-              Daftar Sekarang
-            </button>
           </div>
         </div>
       )}

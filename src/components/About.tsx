@@ -2,6 +2,13 @@
 import { Target, Eye, Heart, CheckCircle } from "lucide-react";
 
 const About = () => {
+  const handleLearnMore = () => {
+    const facilitiesElement = document.querySelector('#facilities');
+    if (facilitiesElement) {
+      facilitiesElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,7 +69,10 @@ const About = () => {
               </div>
             </div>
 
-            <button className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors">
+            <button 
+              onClick={handleLearnMore}
+              className="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+            >
               Pelajari Lebih Lanjut
             </button>
           </div>
