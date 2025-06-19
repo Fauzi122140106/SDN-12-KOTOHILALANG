@@ -5,4 +5,4 @@ export const bloodTypes = [
   { id: 4, key: "O" },
 ];
 
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+export const BASE_URL = import.meta.env.VITE_BE_URL;

@@ -6,8 +6,10 @@ import Facilities from "@/components/Facilities";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useGetNews } from "@/service/useNews";
 
 const Index = () => {
+
   return (
     <div className="min-h-screen">
       <Navbar />
