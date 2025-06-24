@@ -10,6 +10,8 @@ const Blog = () => {
   const { data: News } = useGetNews();
   const newsData = News?.data || [];
 
+  console.log("News Data:", News);
+
   const categories = [
     "Semua",
     "Akademik",

@@ -6,9 +6,9 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("Semua");
 
-  const {data: galleryData} = useGetGallery();
+  const { data: galleryData } = useGetGallery();
   const galleryImages = galleryData?.data.images || [];
- 
+
   const categories = [
     { name: "Semua", icon: Camera },
     { name: "Kegiatan", icon: Users },

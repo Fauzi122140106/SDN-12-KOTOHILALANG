@@ -51,7 +51,7 @@ const Facilities = () => {
               >
                 <div className="relative overflow-hidden">
                   <img
-                    src={facility.image}
+                    src={facility.images}
                     alt={facility.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />

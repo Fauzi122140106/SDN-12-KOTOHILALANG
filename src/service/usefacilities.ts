@@ -13,3 +13,5 @@ export const useGetFacilities = (slug?: string) => {
     queryFn: () => getFacilities(slug),
   });
 };
+
+ 

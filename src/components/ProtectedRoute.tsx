@@ -1,14 +1,14 @@
-
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import Cookies from "js-cookie";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const { isAuthenticated } = useAuth();
-
+  const getCookie = Cookies.get("accessToken");
+  const isAuthenticated = getCookie ? true : false;
   if (!isAuthenticated) {
     return <Navigate to="/admin/login" replace />;
   }
