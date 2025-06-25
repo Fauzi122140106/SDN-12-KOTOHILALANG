@@ -54,6 +54,7 @@ const Facilities = () => {
                     src={facility.images}
                     alt={facility.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    
                   />
                   <div className="absolute top-4 left-4">
                     {/* <div className="w-12 h-12 bg-white/90 backdrop-blur rounded-xl flex items-center justify-center">

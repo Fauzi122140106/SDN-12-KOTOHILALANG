@@ -12,7 +12,7 @@ const Navbar = () => {
     { name: "Tentang", href: "/#about" },
     { name: "Fasilitas", href: "/#facilities" },
     { name: "Galeri", href: "/#gallery" },
-    { name: "Berita", href: "/blog" },
+    { name: "Berita", href: "/#blog" },
     { name: "Kontak", href: "/#contact" },
     { name: "Admin", href: "/admin" },
   ];
