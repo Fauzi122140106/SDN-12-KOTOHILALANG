@@ -10,13 +10,13 @@ import {
   X,
   Home
 } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { useAntuth } from "@/hooks/useAuth";
 
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  const { logout, user } = useAuth();
+  const { logout, user } = useAntuth();
 
   const menuItems = [
     { icon: Home, label: "Dashboard", path: "/admin" },
