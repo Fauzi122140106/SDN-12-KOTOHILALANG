@@ -93,9 +93,6 @@ const AdminLogin = () => {
               </Button>
             </form>
           </Form>
-          <div className="mt-4 text-center text-sm text-gray-600">
-            Demo: username = "admin", password = "admin123"
-          </div>
         </CardContent>
       </Card>
     </div>
